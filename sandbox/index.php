@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Sylvain L. - Testez votre PHP</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://sylvain.pro/assets/css/index.css"/>
+    <link rel="stylesheet" href="assets/css/tester.css"/>
+    <link rel="icon shortcut" href="assets/images/logo.png"/>
+</head>
+<body>
+    <!-- Notification de changement de thème -->
+    <div class="theme-notif"></div>
+
+    <!-- Bouton pour changer de thème -->
+    <button class="switch-btn"></button>
+
+    <!-- Bouton retourner à l'accueil -->
+    <a href="https://sylvain.pro" class="home-btn"><i class="fa-solid fa-home"></i></a>
+
+    <!-- Tester le PHP -->
+    <section class="p-4">
+        <h2 class="title">Testez votre PHP</h2>
+
+        <textarea id="code" placeholder="function example() { ..."></textarea>
+        <button class="button is-primary mt-1" onclick="runPHP();">Exécuter</button>
+
+        <div class="console" id="console"></div>
+    </section>
+
+    <!-- Bas de page -->
+    <div class="has-text-centered p-4 bottom">
+        <p><strong>
+            <a href="/">php.sylvain.pro</a> &copy; 2024. Tous droits réservés.
+        </strong></p>
+    </div>
+    
+    <!-- Charger le Js -->
+    <script type="text/javascript" src="assets/js/console.js"></script>
+    <script type="text/javascript" src="https://sylvain.pro/assets/js/theme.js"></script>
+</body>
+</html>
