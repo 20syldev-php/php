@@ -1,0 +1,19 @@
+textarea, .console {
+    padding: 10px;
+    border-radius: 10px;
+    height: 300px;
+}
+
+textarea {
+    font-family: monospace;
+    background: var(--menu-chat-bg);
+    color: var(--bg-invert);
+    width: 100%;
+}
+
+.console {
+    overflow-y: auto;
+    background: var(--hover-bg);
+    color: var(--bg-invert);
+    margin: 20px 0 50px 0;
+}
