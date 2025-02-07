@@ -22,7 +22,7 @@ $comptes_apres = appliquerMouvements($comptes, $actions);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://sylvain.pro/assets/css/index.css"/>
-    <link rel="icon shortcut" href="assets/images/logo.png"/>
+    <link rel="icon shortcut" href="https://php.sylvain.pro/assets/images/logo.png"/>
 </head>
 <body>
     <!-- Notification de changement de thème -->
