@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'type' => $_POST['type'],
             'montant' => (float) $_POST['montant']
         ];
-        error_log("Action ajouté: {$_POST['numero']} - Type: {$_POST['type']} - Montant: " . $_POST['montant']);
+        error_log("Action ajoutée: {$_POST['numero']} - Type: {$_POST['type']} - Montant: " . $_POST['montant']);
     }    
 
     header('Location: ../');
