@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://sylvain.pro/assets/css/index.css"/>
-    <link rel="stylesheet" href="assets/css/tester.css"/>
-    <link rel="icon shortcut" href="assets/images/logo.png"/>
+    <link rel="stylesheet" href="https://php.sylvain.pro/assets/css/tester.css"/>
+    <link rel="icon shortcut" href="https://php.sylvain.pro/assets/images/logo.png"/>
 </head>
 <body>
     <!-- Notification de changement de thème -->
@@ -39,7 +39,7 @@
     </div>
     
     <!-- Charger le Js -->
-    <script type="text/javascript" src="assets/js/console.js"></script>
+    <script type="text/javascript" src="https://php.sylvain.pro/assets/js/console.js"></script>
     <script type="text/javascript" src="https://sylvain.pro/assets/js/theme.js"></script>
 </body>
 </html>
