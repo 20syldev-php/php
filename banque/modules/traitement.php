@@ -2,6 +2,8 @@
 // Module traitement.php
 
 include 'session.php';
+include_once 'comptes.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['ajouter_compte'])) {
         $_SESSION['comptes'][$_POST['numero']] = [
@@ -11,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
         error_log("Compte ajouté: {$_POST['numero']} - Solde: " . $_POST['solde']);
     }
-    
+
     if (isset($_POST['ajouter_action'])) {
         $_SESSION['actions'][] = [
             'numero' => $_POST['numero'],
@@ -19,8 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'montant' => (float) $_POST['montant']
         ];
         error_log("Action ajoutée: {$_POST['numero']} - Type: {$_POST['type']} - Montant: " . $_POST['montant']);
-    }    
+    }
 
-    header('Location: ../');
+    if (isset($_POST['modifier_compte'])) {
+        $numero = $_POST['numero'];
+        $montant = (float) $_POST['montant'];
+        $_SESSION['comptes'] = mettreAJourCompte($_SESSION['comptes'], $numero, $montant);
+        $_SESSION['actions'][] = ['numero'=>$numero,'type'=>$_POST['type'],'montant'=>$montant];
+        error_log("Compte modifié: $numero - Montant: $montant");
+    }
+
+    header('Location: /banque');
     exit;
 }
