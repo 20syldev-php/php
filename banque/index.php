@@ -1,6 +1,7 @@
 <?php
 // Page principale index.php
 
+include 'modules/session.php';
 include 'config.php';
 include 'modules/comptes.php';
 include 'modules/traitement.php';

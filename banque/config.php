@@ -2,6 +2,7 @@
 // Fichier config.php
 
 if (!isset($_SESSION['comptes'])) {
+include 'modules/session.php';
     $_SESSION['comptes'] = [
         'c001' => ['nom' => 'Keger', 'prenom' => 'Alice', 'solde' => 4000],
         'c004' => ['nom' => 'Ruel', 'prenom' => 'Martine', 'solde' => 2500],

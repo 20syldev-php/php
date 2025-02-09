@@ -1,6 +1,7 @@
 <?php
 // Module traitement.php
 
+include 'session.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['ajouter_compte'])) {
         $_SESSION['comptes'][$_POST['numero']] = [
