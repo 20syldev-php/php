@@ -10,6 +10,7 @@ include 'modules/traitement.php';
 $comptes = isset($_SESSION['comptes']) ? $_SESSION['comptes'] : [];
 $actions = isset($_SESSION['actions']) ? $_SESSION['actions'] : [];
 $comptes_apres = appliquerMouvements($comptes, $actions);
+$_SESSION['comptes'] = $comptes_apres;
 ?>
 
 
@@ -35,85 +36,9 @@ $comptes_apres = appliquerMouvements($comptes, $actions);
     <!-- Bouton retourner à l'accueil -->
     <a href="https://sylvain.pro" class="home-btn"><i class="fa-solid fa-home"></i></a>
 
-    <!-- Formulaire pour ajouter un compte -->
-    <!-- <section class="container mt-5" style="padding-bottom: 100px">
-        <h2 class="title is-4 has-text-centered">Ajouter un Compte</h2>
-
-        <form action="modules/traitement.php" method="POST">
-            <input type="hidden" name="ajouter_compte" value="1">
-            <div class="field">
-                <label class="label">Numéro</label>
-                <div class="control">
-                    <input class="input" type="text" name="numero" placeholder="Numéro du compte">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Nom</label>
-                <div class="control">
-                    <input class="input" type="text" name="nom" placeholder="Nom">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Prénom</label>
-                <div class="control">
-                    <input class="input" type="text" name="prenom" placeholder="Prénom">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Solde</label>
-                <div class="control">
-                    <input class="input" type="number" name="solde" placeholder="Solde initial">
-                </div>
-            </div>
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-link" type="submit">Ajouter</button>
-                </div>
-            </div>
-        </form>
-    </section> -->
-
-    <!-- Formulaire pour ajouter une action -->
-    <!-- <section class="container mt-5" style="padding-bottom: 100px">
-        <h2 class="title is-4 has-text-centered">Ajouter un Action</h2>
-
-        <form action="modules/traitement.php" method="POST">
-            <input type="hidden" name="ajouter_action" value="1">
-            <div class="field">
-                <label class="label">Numéro de Compte</label>
-                <div class="control">
-                    <input class="input" type="text" name="numero" placeholder="Numéro du compte">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Type</label>
-                <div class="control">
-                    <div class="select is-fullwidth">
-                        <select name="type">
-                            <option value="CB">Carte Bancaire (CB)</option>
-                            <option value="CHQ">Chèque (CHQ)</option>
-                            <option value="VIR">Virement (VIR)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Montant</label>
-                <div class="control">
-                    <input class="input" type="number" name="montant" placeholder="Montant" step="0.01">
-                </div>
-            </div>
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-link" type="submit">Ajouter</button>
-                </div>
-            </div>
-        </form>
-    </section> -->
-
     <!-- Tableaux -->
-    <section class="container mt-5" style="padding-bottom: 100px">
-        <h2 class="title is-4 has-text-centered">Gestion des Comptes Bancaires</h2>
+    <section class="container pt-6">
+        <h2 class="title is-3 pb-3 has-text-centered">Gestion des Comptes Bancaires</h2>
 
         <div class="box">
             <h3 class="subtitle is-5">Tableau des Comptes Avant Application des Mouvements</h3>
@@ -144,7 +69,7 @@ $comptes_apres = appliquerMouvements($comptes, $actions);
                 </thead>
                 <tbody>
                     <?php foreach ($actions as $mouvement) {
-                        echo "<tr><td>{$mouvement['numero']}</td><td>{$mouvement['type']}</td><td>{$mouvement['montant']} €</td></tr>";
+                        echo "<tr><td>" . $mouvement['numero'] . "</td><td>" . $mouvement['type'] . "</td><td>" . $mouvement['montant'] . " €</td></tr>";
                     } ?>
                 </tbody>
             </table>
@@ -167,6 +92,77 @@ $comptes_apres = appliquerMouvements($comptes, $actions);
             </table>
         </div>
     </section>
+
+    <section class="container py-5"><hr></section>
+
+    <!-- Formulaire pour ajouter un compte -->
+    <section class="container box">
+        <h2 class="title is-4 has-text-centered">Ajouter un Compte</h2>
+
+        <form action="/banque/modules/traitement.php" method="POST">
+            <input type="hidden" name="ajouter_compte" value="1">
+            <div class="field">
+                <label class="label">Numéro</label>
+                <div class="control">
+                    <input class="input" type="text" name="numero" placeholder="Numéro du compte" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Nom</label>
+                <div class="control">
+                    <input class="input" type="text" name="nom" placeholder="Nom" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Prénom</label>
+                <div class="control">
+                    <input class="input" type="text" name="prenom" placeholder="Prénom" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Solde</label>
+                <div class="control is-flex">
+                    <input class="input mr-3" type="number" name="solde" placeholder="Solde initial" step="1" required>
+                    <button class="button is-link" type="submit">Ajouter</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!-- Formulaire pour modifier un compte -->
+    <section class="container box mt-5">
+        <h2 class="title is-4 has-text-centered">Modifier un Compte</h2>
+        <form action="/banque/modules/traitement.php" method="POST">
+            <input type="hidden" name="modifier_compte" value="1">
+            <div class="field">
+                <label class="label">Numéro</label>
+                <div class="control">
+                    <input class="input" type="text" name="numero" placeholder="Numéro du compte" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Type</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select name="type">
+                            <option value="CB">Carte Bancaire (CB)</option>
+                            <option value="CHQ">Chèque (CHQ)</option>
+                            <option value="VIR">Virement (VIR)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Montant</label>
+                <div class="control is-flex">
+                    <input class="input mr-3" type="number" name="montant" placeholder="Montant" step="1" required>
+                    <button class="button is-link" type="submit">Modifier</button>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <section class="container p-6"></section>
 
     <!-- Bas de page -->
     <div class="has-text-centered p-4 bottom">
