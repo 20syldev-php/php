@@ -3,7 +3,7 @@
 
 function afficherComptes($comptes) {
     foreach ($comptes as $numero => $compte) {
-        echo "<tr><td>{$numero}</td><td>{$compte['nom']}</td><td>{$compte['prenom']}</td><td>{$compte['solde']} €</td></tr>";
+        echo "<tr><td>$numero</td><td>" . $compte['nom'] . "</td><td>" . $compte['prenom'] . "</td><td>" . $compte['solde'] . " €</td></tr>";
     }
 }
 
@@ -19,7 +19,7 @@ function appliquerMouvements($comptes, $actions) {
     foreach ($actions as $mouvement) {
         if (isset($comptes[$mouvement['numero']])) {
             $comptes[$mouvement['numero']]['solde'] += $mouvement['montant'];
-            error_log("Action appliqué au compte {$mouvement['numero']} : type {$mouvement['type']} de {$mouvement['montant']} €");
+            error_log("Action appliqué au compte " . $mouvement['numero'] . " : type " . $mouvement['type'] . " de " . $mouvement['montant'] . " €");
         }
     }
     $_SESSION['comptes'] = $comptes;
