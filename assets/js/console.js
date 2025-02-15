@@ -21,7 +21,7 @@ function runPHP() {
     let code = document.getElementById('code').value;
     let consoleDiv = document.getElementById('console');
     
-    fetch('sandbox/run.php', {
+    fetch('/files/sandbox/run.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'code=' + encodeURIComponent(code)
