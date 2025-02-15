@@ -1,18 +1,17 @@
 <?php
-// Page principale index.php
+    // Page principale index.php
 
-include 'modules/session.php';
-include 'config.php';
-include 'modules/comptes.php';
-include 'modules/traitement.php';
+    include 'modules/session.php';
+    include 'config.php';
+    include 'modules/comptes.php';
+    include 'modules/traitement.php';
 
-// Appliquer les actions avant affichage
-$comptes = isset($_SESSION['comptes']) ? $_SESSION['comptes'] : [];
-$actions = isset($_SESSION['actions']) ? $_SESSION['actions'] : [];
-$comptes_apres = appliquerMouvements($comptes, $actions);
-$_SESSION['comptes'] = $comptes_apres;
+    // Appliquer les actions avant affichage
+    $comptes = isset($_SESSION['comptes']) ? $_SESSION['comptes'] : [];
+    $actions = isset($_SESSION['actions']) ? $_SESSION['actions'] : [];
+    $comptes_apres = appliquerMouvements($comptes, $actions);
+    $_SESSION['comptes'] = $comptes_apres;
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -99,7 +98,7 @@ $_SESSION['comptes'] = $comptes_apres;
     <section class="container box">
         <h2 class="title is-4 has-text-centered">Ajouter un Compte</h2>
 
-        <form action="/banque/modules/traitement.php" method="POST">
+        <form action="banque/modules/traitement.php" method="POST">
             <input type="hidden" name="ajouter_compte" value="1">
             <div class="field">
                 <label class="label">Numéro</label>
@@ -132,7 +131,7 @@ $_SESSION['comptes'] = $comptes_apres;
     <!-- Formulaire pour modifier un compte -->
     <section class="container box mt-5">
         <h2 class="title is-4 has-text-centered">Modifier un Compte</h2>
-        <form action="/banque/modules/traitement.php" method="POST">
+        <form action="banque/modules/traitement.php" method="POST">
             <input type="hidden" name="modifier_compte" value="1">
             <div class="field">
                 <label class="label">Numéro</label>
