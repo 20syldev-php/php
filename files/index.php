@@ -32,7 +32,7 @@
     <section class="section container">
         <h2 class="title is-flex is-justify-content-space-between">Fichiers
             <?php if ($path !== $baseDir): ?>
-                <a href="?path=<?= str_replace('%2F', '/', urlencode(str_replace('\\', '/', dirname($relativePath)))) ?>" class="button is-link px-4 py-1">Retour</a>
+                <a href="?path=<?= str_replace(['%2F', '.', '\\'], '/', dirname($relativePath)) ?>" class="button is-link px-4 py-1">Retour</a>
             <?php endif; ?>
         </h2>
 

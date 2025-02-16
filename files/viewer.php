@@ -32,7 +32,7 @@
         <h2 class="title is-5 is-flex is-justify-content-space-between is-align-items-center">
             <?= htmlspecialchars(basename($path)) ?>
             <?php if ($path !== $baseDir): ?>
-                <a href="/files?path=<?= str_replace('%2F', '/', urlencode(dirname($_GET['view']))) ?>" class="button is-link px-4 py-1">Retour</a>
+                <a href="/files?path=<?= str_replace(['%2F', '.', '\\'], '/', dirname($_GET['view'])) ?>" class="button is-link px-4 py-1">Retour</a>
             <?php endif; ?>
         </h2>
 
