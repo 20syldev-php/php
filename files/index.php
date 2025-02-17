@@ -45,14 +45,14 @@
                     <tr>
                         <td class="description">
                             <?php if (is_dir($itemPath)): ?>
-                                📁 &nbsp;<a href="?path=<?=  str_replace('%2F', '/', urlencode(str_replace('\\', '/', $relativeItemPath))) ?>"><?= $item ?></a>
+                                <i class="fa-solid fa-folder mr-3" style="color: #ffe36e;"></i><a href="?path=<?=  str_replace('%2F', '/', urlencode(str_replace('\\', '/', $relativeItemPath))) ?>"><?= $item ?></a>
                             <?php else: ?>
-                                📄 &nbsp;<a href="/files/viewer.php?view=<?=  str_replace('%2F', '/', urlencode(str_replace('\\', '/', $relativeItemPath))) ?>"><?= $item ?></a>
+                                <i class="fa-solid fa-file-lines mr-4" style="color: var(--bg-invert);"></i><a href="/files/viewer.php?view=<?=  str_replace('%2F', '/', urlencode(str_replace('\\', '/', $relativeItemPath))) ?>"><?= $item ?></a>
                             <?php endif; ?>
                         </td>
                         <td>
                             <?php if (!is_dir($itemPath)): ?>
-                                <a href="/files<?= str_replace('\\', '/', $relativeItemPath) ?>" class="buttons is-small is-right" download>📥</a>
+                                <a href="/files<?= str_replace('\\', '/', $relativeItemPath) ?>" class="buttons is-small is-right" download><i class="fa-solid fa-download" style="color: var(--bg-invert);"></i></a>
                             <?php endif; ?>
                         </td>
                     </tr>
