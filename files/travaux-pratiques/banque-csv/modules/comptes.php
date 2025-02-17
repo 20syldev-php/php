@@ -49,7 +49,7 @@
         foreach ($actions as $mouvement) {
             if (isset($comptes[$mouvement['numero']])) {
                 $comptes[$mouvement['numero']]['solde'] += $mouvement['montant'];
-                error_log('Action appliqué au compte ' . $mouvement['numero'] . ' : type ' . $mouvement['type'] . ' de ' . $mouvement['montant'] . ' €');
+                error_log('Action appliquée au compte ' . $mouvement['numero'] . ' : type ' . $mouvement['type'] . ' de ' . $mouvement['montant'] . ' €');
             }
         }
         $_SESSION['comptes'] = $comptes;
