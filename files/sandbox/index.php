@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Sylvain L. - Testez votre PHP</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://sylvain.pro/assets/css/bulma.css"/>
     <link rel="stylesheet" href="https://sylvain.pro/assets/css/index.css"/>
     <link rel="stylesheet" href="https://php.sylvain.pro/assets/css/tester.css"/>
     <link rel="icon shortcut" href="https://php.sylvain.pro/assets/images/logo.png"/>
