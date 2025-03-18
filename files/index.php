@@ -38,7 +38,7 @@
 
         <table class="table is-fullwidth">
             <tbody>
-                <?php foreach ($items as $item): 
+                <?php foreach ($items as $item):
                     $itemPath = $path . '/' . $item;
                     $relativeItemPath = trim(str_replace($baseDir, '', $itemPath), '/');
                 ?>

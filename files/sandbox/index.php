@@ -37,7 +37,7 @@
             <a href="/">php.sylvain.pro</a> &copy; 2024. Tous droits réservés.
         </strong></p>
     </div>
-    
+
     <!-- Charger le Js -->
     <script type="text/javascript" src="https://php.sylvain.pro/assets/js/console.js"></script>
     <script type="text/javascript" src="https://sylvain.pro/assets/js/theme.js"></script>
